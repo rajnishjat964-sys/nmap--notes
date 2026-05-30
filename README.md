@@ -18,8 +18,9 @@ nmap -sT <target-ip>
 ```
 
 ## TCP SYN Scan
+requires root/administrator privileges
 ```bash
-sudo nmap -sS <target-ip>     (requires root/administrator privileges)
+sudo nmap -sS <target-ip>     
 ```
 
 ## UDP Scan
@@ -45,7 +46,7 @@ nmap -sF <target-ip>
 
 ## Service Version Detection
 ```bash
-nmap -sV <>target-ip
+nmap -sV <target-ip>
 ```
 
 ## Default Scripts
