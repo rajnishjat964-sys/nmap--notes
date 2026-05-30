@@ -1,4 +1,4 @@
-# nmap--notes
+# nmap-notes
 NMAP is a cybersecurity tool used for:
 - Network mapping
 - Host discovery
