@@ -7,14 +7,45 @@ NMAP is a cybersecurity tool used for:
 - OS fingerprinting.
 
 ## Host discovery 
+It is for standard scan. 
 ```bash 
 nmap -sn <ip-range>
 ```
+### ARP Scan
+It is cannot be blocked by OS firewall, but it only works within the same local network. It would not work across routers.
+```bash
+sudo nmap -PR -sn <target-ip>
+```
+### ICMP Echo request (Type 8)
+If host is alive, it replies with Echo reply (Type 0)
+```bash
+sudo nmap -PE -sn <target-ip>
+```
+### ICMP Timestamp/Subnet Mask request
+It is used when standard pings are blocked, but if it is poorly deployed firewall or it has loopholes.
 
+- For Timestamp Scan = -PP
+- For Address Mask Scan = -PM
+
+```bash
+sudo nmap -PP -sn <target-ip>
+```
+### TCP Pings 
+When firewalls block ICMP ,TCP Pings are used to trick the host into responding.
+
+- For TCP SYN Scan = -PS
+- For TCP ACK Scan = -PA
+```bash
+sudo nmap -PA -sn <target-ip>
+```
+### UDP Scan 
+```bash
+sudo nmap -PU -sn <target-ip>
+```
 ## TCP Connect Scan
 it perform 3-way handshake.
 ```bash
-nmap -sT <target-ip>   
+sudo nmap -sT <target-ip>   
 ```
 
 ## TCP SYN Scan
